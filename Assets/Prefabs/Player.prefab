@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2214572712001887506}
   - component: {fileID: 7249581877946749737}
   - component: {fileID: 4847430811441135167}
+  - component: {fileID: 4845288856412693081}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275242301553009371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.186}
+  m_LocalPosition: {x: -0, y: -0.025, z: 0.186}
   m_LocalScale: {x: 0.5698836, y: 0.017687596, z: 0.41295907}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867c4522b91c32f409fe9de57692f036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _angularVelocityThreshhold: 0.2
+  _hingeJointMinLimit: -120
 --- !u!54 &4847430811441135167
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,7 +133,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -143,10 +146,49 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!59 &4845288856412693081
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275242301553009371}
+  m_ConnectedBody: {fileID: 4071743700378449901}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: -0.5}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.20747954, y: 0.352, z: 0.0000000018626451}
+  serializedVersion: 2
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 1
+  m_Motor:
+    targetVelocity: 10
+    force: 10
+    freeSpin: 0
+  m_UseLimits: 1
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: -120
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1060074339955497453
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +435,7 @@ Transform:
   - {fileID: 3120940794864444966}
   - {fileID: 8238851890581310245}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9120881756100257293
 MonoBehaviour:
@@ -436,7 +478,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _launchForce: 500
+  _launchForce: 50000
   _lid: {fileID: 6622313093650812647}
   _trashCanCollider: {fileID: 8515495562202236045}
   _airbornCheckMask:

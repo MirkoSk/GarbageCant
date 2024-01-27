@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     Vector2 _moveInput;
     float _timeSinceLastInput;
     float _originalAngularDrag;
-    Quaternion _lidStartRot, _lidGoalRot;
+    bool _holdingJumpButton;
 
+    HingeJoint _lidHingeJoint;
 
 
     [Header("Movement Controls")]
@@ -42,24 +43,37 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public bool Airborne {get; private set;}
+    public bool Airborne {get; private set; }
 
+    public PlayerInputs PlayerInputs { get; private set; }
 
+    private void Awake()
+    {
+        PlayerInputs = new PlayerInputs();
+
+        _lidHingeJoint = _lid.GetComponentInChildren<HingeJoint>();
+    }
+
+    private void OnEnable()
+    {
+        PlayerInputs.Enable();
+    }
+    private void OnDisable()
+    {
+        PlayerInputs.Disable();
+    }
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _originalAngularDrag = _rb.angularDrag;
         _rb.maxAngularVelocity = _maxAngularVelocity;
-        _lidStartRot = _lid.transform.localRotation;
-        _lidGoalRot = _lidStartRot * Quaternion.Euler(Vector3.right * -140);
     }
 
     private void Update()
     {
         // Get Input
-        _moveInput.x = Input.GetAxis("Horizontal");
-        _moveInput.y = Input.GetAxis("Vertical");
+        _moveInput = PlayerInputs.Standard.Move.ReadValue<Vector2>();
         _moveInput.Normalize();
 
         // Bump angularDrag after inputs
@@ -85,20 +99,27 @@ public class PlayerController : MonoBehaviour
             Airborne = true;
 
         // Lid control
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (PlayerInputs.Standard.Jump.ReadValue<float>() > 0 && !_holdingJumpButton)
         {
             foreach (Collider col in _lid.GetComponentsInChildren<Collider>())
                 col.enabled = true;
-            StopAllCoroutines();
-            StartCoroutine(AnimateLid(false));
-        }
+            JointMotor motor = _lidHingeJoint.motor;
+            motor.force = 100;
+            motor.targetVelocity = -1000;
+            _lidHingeJoint.motor = motor;
 
-        if (Input.GetKeyUp(KeyCode.Space))
+            _holdingJumpButton = true;
+        }
+        else if (PlayerInputs.Standard.Jump.ReadValue<float>() == 0 && _holdingJumpButton)
         {
             foreach (Collider col in _lid.GetComponentsInChildren<Collider>())
                 col.enabled = false;
-            StopAllCoroutines();
-            StartCoroutine(AnimateLid(true));
+            JointMotor motor = _lidHingeJoint.motor;
+            motor.force = 100;
+            motor.targetVelocity = 100;
+            _lidHingeJoint.motor = motor;
+
+            _holdingJumpButton = false;
         }
     }
 
@@ -116,28 +137,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-    IEnumerator AnimateLid(bool closeLid)
-    {
-        Quaternion startRot = _lid.transform.localRotation;
-        Quaternion goalRot = _lidGoalRot;
-        if (closeLid)
-            goalRot = _lidStartRot;
-
-        float timeElapsed = 0;
-        float lerpDuration = .1f;
-        while (timeElapsed < lerpDuration)
-        {
-            _lid.transform.localRotation = Quaternion.Lerp(startRot, goalRot, timeElapsed / lerpDuration);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-        _lid.transform.localRotation = goalRot;
-    }
-
     public void LidCollision(Vector3 contactPos)
     {
-        _rb.AddForce((transform.position - contactPos).normalized * _launchForce * Time.fixedDeltaTime, ForceMode.Impulse);
+        _rb.AddForce((transform.position - contactPos).normalized * _launchForce * Time.fixedDeltaTime 
+            * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
     }
 }
