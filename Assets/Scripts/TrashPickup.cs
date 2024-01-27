@@ -6,13 +6,28 @@ public class TrashPickup : MonoBehaviour
 {
     [SerializeField] int points = 1;
 
+    [SerializeField] AudioClip[] _audioClips;
+
     private void OnTriggerEnter(Collider other)
     {
         TrashCollector player = other.GetComponentInParent<TrashCollector>();
         if (player != null)
         {
             player.CollectTrash(points);
-            Destroy(gameObject);
+            GetComponent<AudioSource>().PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
+
+            //ToDo play particle system here
+
+            StartCoroutine(DestroyDelayed());
         }
+    }
+
+    IEnumerator DestroyDelayed()
+    {
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
     }
 }
