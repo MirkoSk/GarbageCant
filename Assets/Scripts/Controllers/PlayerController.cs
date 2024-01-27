@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
         // Get Input
         _moveInput.x = Input.GetAxis("Horizontal");
         _moveInput.y = Input.GetAxis("Vertical");
-        _moveInput.Normalize();
 
         // Bump angularDrag after inputs
         _timeSinceLastInput += Time.deltaTime;
@@ -104,14 +103,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Project moveInput onto camera view
+        Vector3 forward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        Vector3 right = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
+        Vector3 moveVector = (forward * _moveInput.y + right * _moveInput.x).normalized;
+
+        Debug.DrawLine(transform.position, transform.position + moveVector, Color.red, 2f);
+
         float currentMoveMultiplier = 1f;
         if (Airborne)
             currentMoveMultiplier *= _airControlModifier;
 
         if (_moveInput != Vector2.zero)
         {
-            _rb.AddTorque(new Vector3(-_moveInput.y, 0f, _moveInput.x) * _torqueMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
-            _rb.AddForce(new Vector3(-_moveInput.x, 0f, -_moveInput.y) * _forceMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
+            _rb.AddTorque(new Vector3(moveVector.z, moveVector.y, -moveVector.x) * _torqueMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
+            _rb.AddForce(moveVector * _forceMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
             _timeSinceLastInput = 0f;
         }
     }
