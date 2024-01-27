@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4643622006455935564}
   - component: {fileID: 7464015810117162630}
   - component: {fileID: 6895225138657197066}
+  - component: {fileID: 308910920295331609}
+  - component: {fileID: 560829147351963704}
   m_Layer: 0
   m_Name: Ceiling chandelier
   m_TagString: Untagged
@@ -101,8 +103,52 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3728880684424858005, guid: 8702ec716f5c6e0448b457dd84bfffe9, type: 3}
+--- !u!136 &308910920295331609
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977220681401988947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 1.32
+  m_Direction: 1
+  m_Center: {x: 0.00017920136, y: 0.19379771, z: 0.00011238456}
+--- !u!65 &560829147351963704
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977220681401988947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5185108, y: 0.2, z: 1.5185099}
+  m_Center: {x: 0.00017920136, y: 0.13, z: 0.00011238456}
