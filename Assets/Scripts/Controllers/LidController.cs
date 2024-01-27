@@ -26,7 +26,7 @@ public class LidController : MonoBehaviour
 
     private void Start()
     {
-        _playerInputs = _playerController.PlayerInputs;
+        _playerInputs = PlayerController.PlayerInputs;
     }
 
     private void Update()

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public bool Airborne {get; private set; }
 
-    public PlayerInputs PlayerInputs { get; private set; }
+    public static PlayerInputs PlayerInputs { get; private set; }
 
     private void Awake()
     {
@@ -146,5 +146,12 @@ public class PlayerController : MonoBehaviour
     {
         _rb.AddForce((transform.position - contactPos).normalized * _launchForce * Time.fixedDeltaTime 
             * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
+    }
+
+    public void Respawn(Transform spawnPoint)
+    {
+        transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
     }
 }
