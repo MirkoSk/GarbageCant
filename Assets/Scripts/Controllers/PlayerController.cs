@@ -5,32 +5,75 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody _rb;
+    Vector2 _moveInput;
+    float _timeSinceLastInput;
+    float _originalAngularDrag;
+    Quaternion _lidStartRot, _lidGoalRot;
 
+
+
+    [Header("Movement Controls")]
     [SerializeField]
-    float _movementForce = 1, _launchForce = 1, _airControlModifier = .1f;
+    float _torqueMultiplier = 100f;
+    [SerializeField]
+    float _forceMultiplier = 100f;
+    [SerializeField]
+    float _airControlModifier = .1f;
 
+    [Space]
+    [SerializeField]
+    float _maxAngularVelocity = 2f;
+    [SerializeField]
+    float _angularDragBumpDuration = 1f;
+    [SerializeField]
+    AnimationCurve _angularDragBumpIntensity;
+
+    [Header("Lid Controls")]
+    [SerializeField]
+    float _launchForce = 1;
+
+    [Header("References")]
+    [SerializeField]
+    GameObject _lid;
     [SerializeField]
     Collider _trashCanCollider;
-
     [SerializeField]
     LayerMask _airbornCheckMask = -1;
 
-    [SerializeField]
-    GameObject _lid;
-    Quaternion _lidStartRot, _lidGoalRot;
+
 
     public bool Airborne {get; private set;}
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _originalAngularDrag = _rb.angularDrag;
+        _rb.maxAngularVelocity = _maxAngularVelocity;
         _lidStartRot = _lid.transform.localRotation;
         _lidGoalRot = _lidStartRot * Quaternion.Euler(Vector3.right * -140);
     }
 
     private void Update()
     {
+        // Get Input
+        _moveInput.x = Input.GetAxis("Horizontal");
+        _moveInput.y = Input.GetAxis("Vertical");
+        _moveInput.Normalize();
+
+        // Bump angularDrag after inputs
+        _timeSinceLastInput += Time.deltaTime;
+        if (_moveInput == Vector2.zero && _timeSinceLastInput <= _angularDragBumpDuration)
+        {
+            _rb.angularDrag = _originalAngularDrag * _angularDragBumpIntensity.Evaluate(_timeSinceLastInput / _angularDragBumpDuration);
+        }
+        else
+        {
+            _rb.angularDrag = _originalAngularDrag;
+        }
+
+        // Check if airborne
         if (Physics.CheckCapsule(
             _trashCanCollider.bounds.center,
             _trashCanCollider.ClosestPoint(_trashCanCollider.bounds.center - Vector3.up) * 1.01f,
@@ -41,6 +84,7 @@ public class PlayerController : MonoBehaviour
         else
             Airborne = true;
 
+        // Lid control
         if (Input.GetKeyDown(KeyCode.Space))
         {
             foreach (Collider col in _lid.GetComponentsInChildren<Collider>())
@@ -48,7 +92,8 @@ public class PlayerController : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(AnimateLid(false));
         }
-        if(Input.GetKeyUp(KeyCode.Space))
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             foreach (Collider col in _lid.GetComponentsInChildren<Collider>())
                 col.enabled = false;
@@ -56,6 +101,22 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(AnimateLid(true));
         }
     }
+
+    void FixedUpdate()
+    {
+        float currentMoveMultiplier = 1f;
+        if (Airborne)
+            currentMoveMultiplier *= _airControlModifier;
+
+        if (_moveInput != Vector2.zero)
+        {
+            _rb.AddTorque(new Vector3(-_moveInput.y, 0f, _moveInput.x) * _torqueMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
+            _rb.AddForce(new Vector3(-_moveInput.x, 0f, -_moveInput.y) * _forceMultiplier * currentMoveMultiplier * Time.deltaTime, ForceMode.Acceleration);
+            _timeSinceLastInput = 0f;
+        }
+    }
+
+
 
     IEnumerator AnimateLid(bool closeLid)
     {
@@ -73,29 +134,6 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         _lid.transform.localRotation = goalRot;
-    }
-
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Vector3 movementDirection = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W))
-            movementDirection += transform.right;
-        if (Input.GetKey(KeyCode.S))
-            movementDirection -= transform.right;
-        if (Input.GetKey(KeyCode.A))
-            movementDirection += Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * -Vector3.forward;
-        if (Input.GetKey(KeyCode.D))
-            movementDirection += Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * Vector3.forward;
-
-        movementDirection.Normalize();
-
-        if (Airborne)
-            movementDirection *= _airControlModifier;
-        //_rb.AddForce(movementDirection * _movementForce * Time.fixedDeltaTime, ForceMode.Force);
-        _rb.AddTorque(movementDirection * _movementForce * Time.fixedDeltaTime, ForceMode.Force);
     }
 
     public void LidCollision(Vector3 contactPos)

@@ -393,7 +393,7 @@ Transform:
   - {fileID: 3120940794864444966}
   - {fileID: 8238851890581310245}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9120881756100257293
 MonoBehaviour:
@@ -407,14 +407,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28061f3e7f741244eb52dc54abd053b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementForce: 80
+  _torqueMultiplier: 2000
+  _forceMultiplier: 300
+  _airControlModifier: 0.1
+  _maxAngularVelocity: 7
+  _angularDragBumpDuration: 1
+  _angularDragBumpIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 3
+      inSlope: -0.035331618
+      outSlope: -0.035331618
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.19739544
+      outSlope: -0.19739544
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.059740245
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _launchForce: 500
-  _airControlModifier: 0.01
+  _lid: {fileID: 6622313093650812647}
   _trashCanCollider: {fileID: 8515495562202236045}
   _airbornCheckMask:
     serializedVersion: 2
     m_Bits: 55
-  _lid: {fileID: 6622313093650812647}
 --- !u!54 &4071743700378449901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -423,9 +450,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2688920334858761477}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 100
+  m_Drag: 1
+  m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -439,9 +466,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &6335121398580361073
 GameObject:
   m_ObjectHideFlags: 0
