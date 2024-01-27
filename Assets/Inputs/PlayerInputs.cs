@@ -158,7 +158,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""id"": ""1ce81031-b316-4700-b4c3-9b28ae4aed0f"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2(invertX=false,invertY=false)"",
                     ""groups"": """",
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,
