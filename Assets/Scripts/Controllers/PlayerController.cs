@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _lidStartRot = _lid.transform.localRotation;
-        _lidGoalRot = _lidStartRot * Quaternion.Euler(Vector3.right * 120);
+        _lidGoalRot = _lidStartRot * Quaternion.Euler(Vector3.right * -140);
     }
 
     private void Update()
