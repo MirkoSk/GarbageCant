@@ -108,8 +108,6 @@ public class PlayerController : MonoBehaviour
         Vector3 right = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
         Vector3 moveVector = (forward * _moveInput.y + right * _moveInput.x).normalized;
 
-        Debug.DrawLine(transform.position, transform.position + moveVector, Color.red, 2f);
-
         float currentMoveMultiplier = 1f;
         if (Airborne)
             currentMoveMultiplier *= _airControlModifier;
