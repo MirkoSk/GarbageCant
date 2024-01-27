@@ -153,5 +153,15 @@ public class PlayerController : MonoBehaviour
         transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
+        _rb.isKinematic = true;
+        PlayerInputs.Disable();
+        StartCoroutine(DoRespawn());
+    }
+
+    IEnumerator DoRespawn()
+    {
+        yield return new WaitForSeconds(1f);
+        _rb.isKinematic = false;
+        PlayerInputs.Enable();
     }
 }

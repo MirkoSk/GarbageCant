@@ -62,6 +62,87 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Spawn1"",
+                    ""type"": ""Button"",
+                    ""id"": ""93fb6088-cb8e-4e7b-8551-e6d18cac102a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn2"",
+                    ""type"": ""Button"",
+                    ""id"": ""79374bd9-47c7-4321-8105-607729bcf057"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn3"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce58c8a0-9d92-453d-a314-572081238faf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn4"",
+                    ""type"": ""Button"",
+                    ""id"": ""58aeac49-d54c-43b8-a0a8-7ca0aad54d8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn5"",
+                    ""type"": ""Button"",
+                    ""id"": ""32e9222e-1084-4186-a703-ba866bde2145"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn6"",
+                    ""type"": ""Button"",
+                    ""id"": ""37c50a89-0a30-46d7-b3d0-6856a3a1abe6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn7"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee8afc45-2f25-4c0e-9889-95c8294947fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn8"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b367cde-27f9-43ff-88fa-f462c0c06d37"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9705e59-42cc-4dd1-8097-2ee27a75adfc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -185,6 +266,105 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""SlowMo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad93f97e-3eee-4503-8e21-5b475ae08ba5"",
+                    ""path"": ""<Keyboard>/#(1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a6cd500-8007-4c0f-87d6-583ca5216589"",
+                    ""path"": ""<Keyboard>/#(2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dcca33f-170c-4625-8a4a-165d5e39e503"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da879bc6-0526-4d64-bece-43dcb8106341"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9453eb4e-776e-49b4-847c-c53061e96634"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f8b0707-7117-4bab-924e-f0e7cff3b961"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d91b4b71-9260-4131-82f2-fed9f46a81a8"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce5179fa-63e7-44cb-a6bd-75c4d523f44a"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86613f82-d5f0-47df-973d-1ef15704c0d4"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +377,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Standard_Move = m_Standard.FindAction("Move", throwIfNotFound: true);
         m_Standard_MoveCamera = m_Standard.FindAction("MoveCamera", throwIfNotFound: true);
         m_Standard_SlowMo = m_Standard.FindAction("SlowMo", throwIfNotFound: true);
+        m_Standard_Spawn1 = m_Standard.FindAction("Spawn1", throwIfNotFound: true);
+        m_Standard_Spawn2 = m_Standard.FindAction("Spawn2", throwIfNotFound: true);
+        m_Standard_Spawn3 = m_Standard.FindAction("Spawn3", throwIfNotFound: true);
+        m_Standard_Spawn4 = m_Standard.FindAction("Spawn4", throwIfNotFound: true);
+        m_Standard_Spawn5 = m_Standard.FindAction("Spawn5", throwIfNotFound: true);
+        m_Standard_Spawn6 = m_Standard.FindAction("Spawn6", throwIfNotFound: true);
+        m_Standard_Spawn7 = m_Standard.FindAction("Spawn7", throwIfNotFound: true);
+        m_Standard_Spawn8 = m_Standard.FindAction("Spawn8", throwIfNotFound: true);
+        m_Standard_Respawn = m_Standard.FindAction("Respawn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +451,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_Move;
     private readonly InputAction m_Standard_MoveCamera;
     private readonly InputAction m_Standard_SlowMo;
+    private readonly InputAction m_Standard_Spawn1;
+    private readonly InputAction m_Standard_Spawn2;
+    private readonly InputAction m_Standard_Spawn3;
+    private readonly InputAction m_Standard_Spawn4;
+    private readonly InputAction m_Standard_Spawn5;
+    private readonly InputAction m_Standard_Spawn6;
+    private readonly InputAction m_Standard_Spawn7;
+    private readonly InputAction m_Standard_Spawn8;
+    private readonly InputAction m_Standard_Respawn;
     public struct StandardActions
     {
         private @PlayerInputs m_Wrapper;
@@ -270,6 +468,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Standard_Move;
         public InputAction @MoveCamera => m_Wrapper.m_Standard_MoveCamera;
         public InputAction @SlowMo => m_Wrapper.m_Standard_SlowMo;
+        public InputAction @Spawn1 => m_Wrapper.m_Standard_Spawn1;
+        public InputAction @Spawn2 => m_Wrapper.m_Standard_Spawn2;
+        public InputAction @Spawn3 => m_Wrapper.m_Standard_Spawn3;
+        public InputAction @Spawn4 => m_Wrapper.m_Standard_Spawn4;
+        public InputAction @Spawn5 => m_Wrapper.m_Standard_Spawn5;
+        public InputAction @Spawn6 => m_Wrapper.m_Standard_Spawn6;
+        public InputAction @Spawn7 => m_Wrapper.m_Standard_Spawn7;
+        public InputAction @Spawn8 => m_Wrapper.m_Standard_Spawn8;
+        public InputAction @Respawn => m_Wrapper.m_Standard_Respawn;
         public InputActionMap Get() { return m_Wrapper.m_Standard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -291,6 +498,33 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SlowMo.started += instance.OnSlowMo;
             @SlowMo.performed += instance.OnSlowMo;
             @SlowMo.canceled += instance.OnSlowMo;
+            @Spawn1.started += instance.OnSpawn1;
+            @Spawn1.performed += instance.OnSpawn1;
+            @Spawn1.canceled += instance.OnSpawn1;
+            @Spawn2.started += instance.OnSpawn2;
+            @Spawn2.performed += instance.OnSpawn2;
+            @Spawn2.canceled += instance.OnSpawn2;
+            @Spawn3.started += instance.OnSpawn3;
+            @Spawn3.performed += instance.OnSpawn3;
+            @Spawn3.canceled += instance.OnSpawn3;
+            @Spawn4.started += instance.OnSpawn4;
+            @Spawn4.performed += instance.OnSpawn4;
+            @Spawn4.canceled += instance.OnSpawn4;
+            @Spawn5.started += instance.OnSpawn5;
+            @Spawn5.performed += instance.OnSpawn5;
+            @Spawn5.canceled += instance.OnSpawn5;
+            @Spawn6.started += instance.OnSpawn6;
+            @Spawn6.performed += instance.OnSpawn6;
+            @Spawn6.canceled += instance.OnSpawn6;
+            @Spawn7.started += instance.OnSpawn7;
+            @Spawn7.performed += instance.OnSpawn7;
+            @Spawn7.canceled += instance.OnSpawn7;
+            @Spawn8.started += instance.OnSpawn8;
+            @Spawn8.performed += instance.OnSpawn8;
+            @Spawn8.canceled += instance.OnSpawn8;
+            @Respawn.started += instance.OnRespawn;
+            @Respawn.performed += instance.OnRespawn;
+            @Respawn.canceled += instance.OnRespawn;
         }
 
         private void UnregisterCallbacks(IStandardActions instance)
@@ -307,6 +541,33 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SlowMo.started -= instance.OnSlowMo;
             @SlowMo.performed -= instance.OnSlowMo;
             @SlowMo.canceled -= instance.OnSlowMo;
+            @Spawn1.started -= instance.OnSpawn1;
+            @Spawn1.performed -= instance.OnSpawn1;
+            @Spawn1.canceled -= instance.OnSpawn1;
+            @Spawn2.started -= instance.OnSpawn2;
+            @Spawn2.performed -= instance.OnSpawn2;
+            @Spawn2.canceled -= instance.OnSpawn2;
+            @Spawn3.started -= instance.OnSpawn3;
+            @Spawn3.performed -= instance.OnSpawn3;
+            @Spawn3.canceled -= instance.OnSpawn3;
+            @Spawn4.started -= instance.OnSpawn4;
+            @Spawn4.performed -= instance.OnSpawn4;
+            @Spawn4.canceled -= instance.OnSpawn4;
+            @Spawn5.started -= instance.OnSpawn5;
+            @Spawn5.performed -= instance.OnSpawn5;
+            @Spawn5.canceled -= instance.OnSpawn5;
+            @Spawn6.started -= instance.OnSpawn6;
+            @Spawn6.performed -= instance.OnSpawn6;
+            @Spawn6.canceled -= instance.OnSpawn6;
+            @Spawn7.started -= instance.OnSpawn7;
+            @Spawn7.performed -= instance.OnSpawn7;
+            @Spawn7.canceled -= instance.OnSpawn7;
+            @Spawn8.started -= instance.OnSpawn8;
+            @Spawn8.performed -= instance.OnSpawn8;
+            @Spawn8.canceled -= instance.OnSpawn8;
+            @Respawn.started -= instance.OnRespawn;
+            @Respawn.performed -= instance.OnRespawn;
+            @Respawn.canceled -= instance.OnRespawn;
         }
 
         public void RemoveCallbacks(IStandardActions instance)
@@ -330,5 +591,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnMoveCamera(InputAction.CallbackContext context);
         void OnSlowMo(InputAction.CallbackContext context);
+        void OnSpawn1(InputAction.CallbackContext context);
+        void OnSpawn2(InputAction.CallbackContext context);
+        void OnSpawn3(InputAction.CallbackContext context);
+        void OnSpawn4(InputAction.CallbackContext context);
+        void OnSpawn5(InputAction.CallbackContext context);
+        void OnSpawn6(InputAction.CallbackContext context);
+        void OnSpawn7(InputAction.CallbackContext context);
+        void OnSpawn8(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
     }
 }
