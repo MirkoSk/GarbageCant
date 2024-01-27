@@ -7,6 +7,7 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField] List<Transform> _spawnPoints = new List<Transform>();
 
     PlayerController _player;
+    int _currentFloor = 0;
 
     public int SpawnPointsCount { get => _spawnPoints.Count; }
 
@@ -27,6 +28,7 @@ public class SpawnManager : Singleton<SpawnManager>
         else if (PlayerController.PlayerInputs.Standard.Spawn6.triggered) SpawnPlayer(5);
         else if (PlayerController.PlayerInputs.Standard.Spawn7.triggered) SpawnPlayer(6);
         else if (PlayerController.PlayerInputs.Standard.Spawn8.triggered) SpawnPlayer(7);
+        else if (PlayerController.PlayerInputs.Standard.Respawn.triggered) RespawnAtCurrentFloor();
     }
 
 
@@ -35,5 +37,18 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         if (number < _spawnPoints.Count) _player.Respawn(_spawnPoints[number]);
         else Debug.LogError($"Couldn't find spawn point with number {number}.", gameObject);
+    }
+
+    public void RespawnAtCurrentFloor()
+    {
+        SpawnPlayer(_currentFloor);
+    }
+
+    public void ChangeSpawnFloor(bool increment)
+    {
+        if (increment) _currentFloor = _currentFloor++;
+        else _currentFloor = _currentFloor--;
+
+        _currentFloor = Mathf.Clamp(_currentFloor, 0, 4);
     }
 }
