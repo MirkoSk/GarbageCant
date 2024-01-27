@@ -9,8 +9,6 @@ public class SpawnManager : Singleton<SpawnManager>
     PlayerController _player;
     int _currentFloor = 0;
 
-    public int SpawnPointsCount { get => _spawnPoints.Count; }
-
 
 
     private void Start()
@@ -46,8 +44,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public void ChangeSpawnFloor(bool increment)
     {
-        if (increment) _currentFloor = _currentFloor++;
-        else _currentFloor = _currentFloor--;
+        if (increment) _currentFloor = _currentFloor + 1;
+        else _currentFloor = _currentFloor - 1;
 
         _currentFloor = Mathf.Clamp(_currentFloor, 0, 4);
     }
