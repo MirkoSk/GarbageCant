@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2481138477646908388}
   - component: {fileID: 399185415940243246}
   - component: {fileID: -4238261865212152617}
+  - component: {fileID: 5722741548957593935}
   m_Layer: 0
   m_Name: Longlas
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Transform:
   - {fileID: 7995454294942097066}
   - {fileID: 5307506126153688962}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 114
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2481138477646908388
 MeshFilter:
@@ -214,6 +215,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &5722741548957593935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200797271963852539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6105602021199566737, guid: 391903bfb7a566d46bc17ab1a594cac4, type: 3}
 --- !u!1 &3094579150061051585
 GameObject:
   m_ObjectHideFlags: 0
