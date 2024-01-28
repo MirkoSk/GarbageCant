@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(_rb.velocity.magnitude);
         if(_rb.velocity.magnitude >= 1.75f)
             _audioSource.PlayOneShot(_binCollisionSounds[Random.Range(0, _binCollisionSounds.Length)], .25f);
     }
