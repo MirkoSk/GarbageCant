@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
-  despawnDelay: 1
+  scaleUpDuration: 0.3
+  scaleDownDuration: 0.1
   _audioClips:
   - {fileID: 8300000, guid: 50847ffcb11b2c9459c20f303fc787da, type: 3}
   - {fileID: 8300000, guid: a820b560630913b469e77abe2a554156, type: 3}
@@ -364,7 +365,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5202,7 +5203,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

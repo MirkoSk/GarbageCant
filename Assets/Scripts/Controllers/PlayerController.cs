@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody _rb;
+    AudioSource _audioSource;
     Vector2 _moveInput;
     float _timeSinceLastInput;
     float _originalAngularDrag;
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour
     LayerMask _airbornCheckMask = -1;
 
 
+    [SerializeField]
+    AudioClip[] _lidOpeningSounds, _binCollisionSounds;
+
+
 
     public bool Airborne {get; private set; }
 
@@ -66,6 +71,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
         _originalAngularDrag = _rb.angularDrag;
         _rb.maxAngularVelocity = _maxAngularVelocity;
     }
@@ -142,12 +148,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(_rb.velocity.magnitude);
+        if(_rb.velocity.magnitude >= 1.75f)
+            _audioSource.PlayOneShot(_binCollisionSounds[Random.Range(0, _binCollisionSounds.Length)], .25f);
+    }
+
     public void LidCollision(Vector3 contactPos)
     {
         /*
         _rb.AddForce((transform.position - contactPos).normalized * _launchForce * Time.fixedDeltaTime 
             * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
         */
+        _audioSource.volume = 1;
+        _audioSource.PlayOneShot(_lidOpeningSounds[Random.Range(0, _lidOpeningSounds.Length)], 1);
         _rb.AddForce((transform.position - _lid.transform.position).normalized * _launchForce * Time.fixedDeltaTime
             * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
     }
