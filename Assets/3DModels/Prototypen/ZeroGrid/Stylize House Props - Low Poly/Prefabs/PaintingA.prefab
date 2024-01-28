@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 1962605794168610095}
   - component: {fileID: -8059722525501152201}
   - component: {fileID: 8746904794468797844}
+  - component: {fileID: 6665743259708687532}
   m_Layer: 0
   m_Name: PaintingA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1962605794168610095
 Transform:
@@ -83,3 +84,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6414378092643708647}
   m_Mesh: {fileID: -3621212142553062210, guid: 4137f78de0a090341ae59ac2e814758a, type: 3}
+--- !u!65 &6665743259708687532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414378092643708647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.013818263, y: 0.0007399018, z: 0.017818134}
+  m_Center: {x: 5.6248265e-18, y: 0.00036994863, z: 5.2573114e-18}
