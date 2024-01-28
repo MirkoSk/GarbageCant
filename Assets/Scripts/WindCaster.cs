@@ -5,7 +5,7 @@ using UnityEngine;
 public class WindCaster : MonoBehaviour
 {
     static float _slowRotationSpeed = 100, _mediumRotationSpeed = 500, _fastRotationSpeed = 1000;
-    static float _slowWindForce = 300, _mediumWindForce = 600, _fastWindForce = 1000;
+    static float _slowWindForce = 150, _mediumWindForce = 600, _fastWindForce = 1000;
 
     enum FanSpeed { SLOW, MEDIUM, FAST }
 
