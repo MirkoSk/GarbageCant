@@ -18,6 +18,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (PlayerController.PlayerInputs.Standard.Spawn1.triggered) SpawnPlayer(0);
         else if (PlayerController.PlayerInputs.Standard.Spawn2.triggered) SpawnPlayer(1);
         else if (PlayerController.PlayerInputs.Standard.Spawn3.triggered) SpawnPlayer(2);
@@ -26,22 +27,32 @@ public class SpawnManager : Singleton<SpawnManager>
         else if (PlayerController.PlayerInputs.Standard.Spawn6.triggered) SpawnPlayer(5);
         else if (PlayerController.PlayerInputs.Standard.Spawn7.triggered) SpawnPlayer(6);
         else if (PlayerController.PlayerInputs.Standard.Spawn8.triggered) SpawnPlayer(7);
-        else if (PlayerController.PlayerInputs.Standard.Respawn.triggered) RespawnAtCurrentFloor();
+#endif
+
+        if (PlayerController.PlayerInputs.Standard.Respawn.triggered) SpawnPlayer(0);
     }
 
 
 
     public void SpawnPlayer(int number)
     {
-        if (number < _spawnPoints.Count) _player.Respawn(_spawnPoints[number]);
-        else Debug.LogError($"Couldn't find spawn point with number {number}.", gameObject);
+        if (number < _spawnPoints.Count)
+        {
+            _player.Respawn(_spawnPoints[number]);
+        }
+        else
+        {
+            Debug.LogError($"Couldn't find spawn point with number {number}.", gameObject);
+        }
     }
 
+    // TODO: Currently not working
     public void RespawnAtCurrentFloor()
     {
         SpawnPlayer(_currentFloor);
     }
 
+    // TODO: Currently not working
     public void ChangeSpawnFloor(bool increment)
     {
         if (increment) _currentFloor = _currentFloor + 1;
