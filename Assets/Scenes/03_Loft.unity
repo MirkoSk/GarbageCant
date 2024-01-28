@@ -471,6 +471,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 657794917262477469, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: m_Height
+      value: 5.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 657794917262477469, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 797110164066219824, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 797110164066219824, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3826008759040394715, guid: 76208490c6c524747910fb4cc38b272d,
         type: 3}
       propertyPath: m_Name
@@ -1568,6 +1588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loft
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ec1500ff75e8774ab25264b8b8e7fe5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3133,6 +3158,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 657794917262477469, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: m_Height
+      value: 5.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 657794917262477469, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 797110164066219824, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 797110164066219824, guid: 76208490c6c524747910fb4cc38b272d,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3826008759040394715, guid: 76208490c6c524747910fb4cc38b272d,
         type: 3}
       propertyPath: m_Name
