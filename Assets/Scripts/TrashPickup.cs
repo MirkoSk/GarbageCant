@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TrashPickup : MonoBehaviour
 {
     [SerializeField] int points = 1;
-    [SerializeField] float despawnDelay = 1f;
 
+    [Header("Pickup Settings")]
+    [SerializeField] float scaleUpDuration = 1f;
+    [SerializeField] float scaleDownDuration = 0.4f;
     [SerializeField] AudioClip[] _audioClips;
 
     private void OnTriggerEnter(Collider other)
@@ -16,19 +19,15 @@ public class TrashPickup : MonoBehaviour
         {
             player.CollectTrash(points);
             GetComponent<AudioSource>().PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
-            GetComponent<MeshRenderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
 
-            //ToDo play particle system here
-
-            StartCoroutine(DestroyDelayed());
+            transform.parent.DOScale(2f, scaleUpDuration).SetEase(Ease.OutCubic).OnComplete(() =>
+            {
+                transform.parent.DOScale(0f, scaleDownDuration).SetEase(Ease.InCubic).OnComplete(() =>
+                {
+                    Destroy(transform.parent.gameObject);
+                });
+            });
         }
-    }
-
-    IEnumerator DestroyDelayed()
-    {
-        yield return new WaitForSeconds(despawnDelay);
-
-        Destroy(transform.parent.gameObject);
     }
 }
