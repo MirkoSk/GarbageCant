@@ -6299,7 +6299,7 @@ GameObject:
   - component: {fileID: 1464675883}
   m_Layer: 0
   m_Name: SpawnPointAttic
-  m_TagString: SpawnPoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6801,7 +6801,7 @@ GameObject:
   - component: {fileID: 1594475474}
   m_Layer: 0
   m_Name: SpawnPoint2ndFloor
-  m_TagString: SpawnPoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8122,8 +8122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 86.000946, y: 0}
-  m_SizeDelta: {x: -171.2, y: 0}
+  m_AnchoredPosition: {x: 85.800995, y: 0}
+  m_SizeDelta: {x: -171.6, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811810639
 MonoBehaviour:
@@ -8145,7 +8145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 0 / 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9745,7 +9745,7 @@ GameObject:
   - component: {fileID: 9147162194545465280}
   m_Layer: 0
   m_Name: SpawnPointBasement
-  m_TagString: SpawnPoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9761,7 +9761,7 @@ GameObject:
   - component: {fileID: 8082209648436849954}
   m_Layer: 0
   m_Name: SpawnPointLivingRoom
-  m_TagString: SpawnPoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

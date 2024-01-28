@@ -7,7 +7,16 @@ public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTextmesh;
 
+    int totalPickupCount;
 
+
+
+    private void Start()
+    {
+        GameObject[] pickups = GameObject.FindGameObjectsWithTag("TrashPickup");
+        totalPickupCount = pickups.Length;
+        scoreTextmesh.text = "0 / " + totalPickupCount.ToString();
+    }
 
     private void OnEnable()
     {
@@ -23,6 +32,6 @@ public class ScoreCounter : MonoBehaviour
 
     void UpdateCounter(int pointsGained, int pointsTotal)
     {
-        scoreTextmesh.text = pointsTotal.ToString();
+        scoreTextmesh.text = pointsTotal.ToString() + " / " + totalPickupCount.ToString();
     }
 }
