@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : Singleton<GameController>
 {
     [SerializeField]
-    GameObject _player, _camera;
+    GameObject introPanel, controlsPanel;
 
     public PlayerInputs PlayerInputs{get; private set;}
 
@@ -21,7 +21,11 @@ public class GameController : Singleton<GameController>
 
     private void OnEnable()
     {
+        PlayerController.PlayerInputs.Disable();
+
         PlayerInputs.Enable();
+        introPanel.SetActive(true);
+        controlsPanel.SetActive(false);
     }
     private void OnDisable()
     {
@@ -30,11 +34,19 @@ public class GameController : Singleton<GameController>
 
     private void Update()
     {
-        if (PlayerInputs.Menu.Accept.ReadValue<float>() == 1) {
-            GetComponentInChildren<Canvas>().gameObject.SetActive(false);
-            _player.SetActive(true);
-            _camera.SetActive(true);
-            gameObject.SetActive(false);
+        if (PlayerInputs.Menu.Accept.triggered)
+        {
+            if (introPanel.activeInHierarchy)
+            {
+                introPanel.SetActive(false);
+                controlsPanel.SetActive(true);
+            }
+            else if (!introPanel.activeInHierarchy)
+            {
+                GetComponentInChildren<Canvas>().gameObject.SetActive(false);
+                PlayerController.PlayerInputs.Enable();
+                gameObject.SetActive(false);
+            }
         }
     }
 }
