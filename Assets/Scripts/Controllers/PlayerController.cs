@@ -144,7 +144,11 @@ public class PlayerController : MonoBehaviour
 
     public void LidCollision(Vector3 contactPos)
     {
+        /*
         _rb.AddForce((transform.position - contactPos).normalized * _launchForce * Time.fixedDeltaTime 
+            * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
+        */
+        _rb.AddForce((transform.position - _lid.transform.position).normalized * _launchForce * Time.fixedDeltaTime
             * PlayerInputs.Standard.Jump.ReadValue<float>(), ForceMode.Impulse);
     }
 
