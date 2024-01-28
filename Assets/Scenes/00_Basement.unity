@@ -2483,7 +2483,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.72
+  m_Intensity: 1.27
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4193,7 +4193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introPanel: {fileID: 1352053401}
   controlsPanel: {fileID: 1814626483}
-  _player: {fileID: 2123946021}
 --- !u!4 &830477785
 Transform:
   m_ObjectHideFlags: 0
@@ -10756,18 +10755,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2123946016}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2123946021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9120881756100257293, guid: 15a1230cfb96d42e2b81e7155ce26d3d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2123946016}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28061f3e7f741244eb52dc54abd053b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2139531092
 PrefabInstance:
   m_ObjectHideFlags: 0
