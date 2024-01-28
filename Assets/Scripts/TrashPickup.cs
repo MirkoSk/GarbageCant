@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrashPickup : MonoBehaviour
 {
     [SerializeField] int points = 1;
+    [SerializeField] float despawnDelay = 1f;
 
     [SerializeField] AudioClip[] _audioClips;
 
@@ -26,8 +27,8 @@ public class TrashPickup : MonoBehaviour
 
     IEnumerator DestroyDelayed()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(despawnDelay);
 
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
